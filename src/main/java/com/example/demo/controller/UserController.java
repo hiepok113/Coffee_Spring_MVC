@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,6 +22,8 @@ public class UserController{
 
     @RequestMapping("/")
         public String getUser(Model model){
+            List<User> users = this.userService.getAllUsersByEmail("2@gmail.com");
+            System.out.println(users);
             model.addAttribute("userInfo", "test");
             return "hello";
         }
