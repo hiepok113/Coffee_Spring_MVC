@@ -41,10 +41,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               <td>${user.email}</td>
               <td>${user.fullName}</td>
               <td>
-                <a
-                  href="/admin/user/view/${user.id}"
-                  class="btn btn-success btn-sm"
-                >
+                <a href="/admin/user/${user.id}" class="btn btn-success btn-sm">
                   View
                 </a>
                 <a
@@ -56,7 +53,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <a
                   href="/admin/user/delete/${user.id}"
                   class="btn btn-danger btn-sm"
-                  onclick="return confirm('Are you sure?');"
                 >
                   Delete
                 </a>
