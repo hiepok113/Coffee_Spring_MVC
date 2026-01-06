@@ -61,7 +61,7 @@ public class UserController{
     return "/admin/user/update";
 }
     @PostMapping("/admin/user/update")
-    public String updateUser(@ModelAttribute("user") User user) {
+    public String updateUser(@ModelAttribute User user) {
     User updatedUser = this.userService.getUserById(user.getId());
     if(updatedUser != null) {
         updatedUser.setFullName(user.getFullName());

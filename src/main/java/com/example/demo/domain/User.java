@@ -1,12 +1,17 @@
 package com.example.demo.domain;
 
-import jakarta.annotation.Generated;
+import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +21,13 @@ public class User {
     private String fullName;
     private String address;
     private String number;
+    private String avatarString;
+
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
     public Long getId() {
         return id;
     }
@@ -52,6 +64,12 @@ public class User {
     public void setNumber(String number) {
         this.number = number;
     }
+    public String getAvatarString() {
+        return avatarString;
+    }
+    public void setAvatarString(String avatarString) {
+        this.avatarString = avatarString;
+    }
     @Override
     public String toString() {
         return "User{" +
@@ -61,6 +79,7 @@ public class User {
                 ", fullName='" + fullName + '\'' +
                 ", address='" + address + '\'' +
                 ", number='" + number + '\'' +
+                ", avatarString='" + avatarString + '\'' +
                 '}';
     }
 
