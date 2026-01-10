@@ -98,7 +98,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
         <div class="tab-class text-center">
           <div class="row g-4">
             <div class="col-lg-4 text-start">
-              <h1>Our Organic Products</h1>
+              <h1>Sản phẩm nổi bật</h1>
             </div>
             <div class="col-lg-8 text-end">
               <ul class="nav nav-pills d-inline-flex text-center mb-5">
@@ -113,44 +113,6 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                     >
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a
-                    class="d-flex py-2 m-2 bg-light rounded-pill"
-                    data-bs-toggle="pill"
-                    href="#tab-2"
-                  >
-                    <span class="text-dark" style="width: 130px"
-                      >Vegetables</span
-                    >
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="d-flex m-2 py-2 bg-light rounded-pill"
-                    data-bs-toggle="pill"
-                    href="#tab-3"
-                  >
-                    <span class="text-dark" style="width: 130px">Fruits</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="d-flex m-2 py-2 bg-light rounded-pill"
-                    data-bs-toggle="pill"
-                    href="#tab-4"
-                  >
-                    <span class="text-dark" style="width: 130px">Bread</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="d-flex m-2 py-2 bg-light rounded-pill"
-                    data-bs-toggle="pill"
-                    href="#tab-5"
-                  >
-                    <span class="text-dark" style="width: 130px">Meat</span>
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -163,7 +125,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                       <div class="rounded position-relative fruite-item">
                         <div class="fruite-img">
                           <img
-                            src="/client/img/fruite-item-5.jpg"
+                            src="/client/img/coffee.png"
                             class="img-fluid w-100 rounded-top"
                             alt=""
                           />
@@ -172,30 +134,31 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                           class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                           style="top: 10px; left: 10px"
                         >
-                          Fruits
+                          Coffee
                         </div>
                         <div
                           class="p-4 border border-secondary border-top-0 rounded-bottom"
                         >
-                          <h4>Grapes</h4>
+                          <h4>Cà phê đen truyền thống</h4>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit sed do eiusmod te incididunt
+                            Cà phê rang đậm, hương vị mạnh mẽ, đậm đà đúng chất
+                            cà phê Việt Nam.
                           </p>
                           <div
                             class="d-flex justify-content-between flex-lg-wrap"
                           >
                             <p class="text-dark fs-5 fw-bold mb-0">
-                              $4.99 / kg
+                              25.000đ / ly
                             </p>
                             <a
                               href="#"
                               class="btn border border-secondary rounded-pill px-3 text-primary"
-                              ><i
+                            >
+                              <i
                                 class="fa fa-shopping-bag me-2 text-primary"
                               ></i>
-                              Add to cart</a
-                            >
+                              Thêm vào giỏ
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -204,7 +167,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                       <div class="rounded position-relative fruite-item">
                         <div class="fruite-img">
                           <img
-                            src="/client/img/fruite-item-5.jpg"
+                            src="/client/img/coffee-milk.png"
                             class="img-fluid w-100 rounded-top"
                             alt=""
                           />
@@ -213,30 +176,31 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                           class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                           style="top: 10px; left: 10px"
                         >
-                          Fruits
+                          Coffee
                         </div>
                         <div
                           class="p-4 border border-secondary border-top-0 rounded-bottom"
                         >
-                          <h4>Grapes</h4>
+                          <h4>Cà phê sữa đá</h4>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit sed do eiusmod te incididunt
+                            Sự kết hợp hoàn hảo giữa cà phê rang xay và sữa đặc
+                            béo ngậy.
                           </p>
                           <div
                             class="d-flex justify-content-between flex-lg-wrap"
                           >
                             <p class="text-dark fs-5 fw-bold mb-0">
-                              $4.99 / kg
+                              30.000đ / ly
                             </p>
                             <a
                               href="#"
                               class="btn border border-secondary rounded-pill px-3 text-primary"
-                              ><i
+                            >
+                              <i
                                 class="fa fa-shopping-bag me-2 text-primary"
                               ></i>
-                              Add to cart</a
-                            >
+                              Thêm vào giỏ
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -245,7 +209,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                       <div class="rounded position-relative fruite-item">
                         <div class="fruite-img">
                           <img
-                            src="/client/img/fruite-item-2.jpg"
+                            src="/client/img/milkcoffee.png"
                             class="img-fluid w-100 rounded-top"
                             alt=""
                           />
@@ -254,30 +218,31 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                           class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                           style="top: 10px; left: 10px"
                         >
-                          Fruits
+                          Coffee
                         </div>
                         <div
                           class="p-4 border border-secondary border-top-0 rounded-bottom"
                         >
-                          <h4>Raspberries</h4>
+                          <h4>Bạc xỉu</h4>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit sed do eiusmod te incididunt
+                            Vị sữa thơm béo kết hợp cà phê nhẹ, dễ uống, phù hợp
+                            mọi lứa tuổi.
                           </p>
                           <div
                             class="d-flex justify-content-between flex-lg-wrap"
                           >
                             <p class="text-dark fs-5 fw-bold mb-0">
-                              $4.99 / kg
+                              32.000đ / ly
                             </p>
                             <a
                               href="#"
                               class="btn border border-secondary rounded-pill px-3 text-primary"
-                              ><i
+                            >
+                              <i
                                 class="fa fa-shopping-bag me-2 text-primary"
                               ></i>
-                              Add to cart</a
-                            >
+                              Thêm vào giỏ
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -286,7 +251,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                       <div class="rounded position-relative fruite-item">
                         <div class="fruite-img">
                           <img
-                            src="/client/img/fruite-item-4.jpg"
+                            src="/client/img/latte.png"
                             class="img-fluid w-100 rounded-top"
                             alt=""
                           />
@@ -295,30 +260,31 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                           class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                           style="top: 10px; left: 10px"
                         >
-                          Fruits
+                          Coffee
                         </div>
                         <div
                           class="p-4 border border-secondary border-top-0 rounded-bottom"
                         >
-                          <h4>Apricots</h4>
+                          <h4>Latte</h4>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit sed do eiusmod te incididunt
+                            Espresso kết hợp sữa tươi mịn màng, hương vị nhẹ
+                            nhàng, dễ uống.
                           </p>
                           <div
                             class="d-flex justify-content-between flex-lg-wrap"
                           >
                             <p class="text-dark fs-5 fw-bold mb-0">
-                              $4.99 / kg
+                              40.000đ / ly
                             </p>
                             <a
                               href="#"
                               class="btn border border-secondary rounded-pill px-3 text-primary"
-                              ><i
+                            >
+                              <i
                                 class="fa fa-shopping-bag me-2 text-primary"
                               ></i>
-                              Add to cart</a
-                            >
+                              Thêm vào giỏ
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -327,7 +293,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                       <div class="rounded position-relative fruite-item">
                         <div class="fruite-img">
                           <img
-                            src="/client/img/fruite-item-3.jpg"
+                            src="/client/img/capuchino.png"
                             class="img-fluid w-100 rounded-top"
                             alt=""
                           />
@@ -336,30 +302,31 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                           class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                           style="top: 10px; left: 10px"
                         >
-                          Fruits
+                          Coffee
                         </div>
                         <div
                           class="p-4 border border-secondary border-top-0 rounded-bottom"
                         >
-                          <h4>Banana</h4>
+                          <h4>Cappuccino</h4>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit sed do eiusmod te incididunt
+                            Espresso đậm vị kết hợp bọt sữa dày, hương thơm
+                            quyến rũ.
                           </p>
                           <div
                             class="d-flex justify-content-between flex-lg-wrap"
                           >
                             <p class="text-dark fs-5 fw-bold mb-0">
-                              $4.99 / kg
+                              42.000đ / ly
                             </p>
                             <a
                               href="#"
                               class="btn border border-secondary rounded-pill px-3 text-primary"
-                              ><i
+                            >
+                              <i
                                 class="fa fa-shopping-bag me-2 text-primary"
                               ></i>
-                              Add to cart</a
-                            >
+                              Thêm vào giỏ
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -368,7 +335,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                       <div class="rounded position-relative fruite-item">
                         <div class="fruite-img">
                           <img
-                            src="/client/img/fruite-item-1.jpg"
+                            src="/client/img/americano.png"
                             class="img-fluid w-100 rounded-top"
                             alt=""
                           />
@@ -377,30 +344,30 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                           class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                           style="top: 10px; left: 10px"
                         >
-                          Fruits
+                          Coffee
                         </div>
                         <div
                           class="p-4 border border-secondary border-top-0 rounded-bottom"
                         >
-                          <h4>Oranges</h4>
+                          <h4>Americano</h4>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit sed do eiusmod te incididunt
+                            Espresso pha loãng với nước nóng, vị nhẹ, ít đắng.
                           </p>
                           <div
                             class="d-flex justify-content-between flex-lg-wrap"
                           >
                             <p class="text-dark fs-5 fw-bold mb-0">
-                              $4.99 / kg
+                              35.000đ / ly
                             </p>
                             <a
                               href="#"
                               class="btn border border-secondary rounded-pill px-3 text-primary"
-                              ><i
+                            >
+                              <i
                                 class="fa fa-shopping-bag me-2 text-primary"
                               ></i>
-                              Add to cart</a
-                            >
+                              Thêm vào giỏ
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -409,7 +376,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                       <div class="rounded position-relative fruite-item">
                         <div class="fruite-img">
                           <img
-                            src="/client/img/fruite-item-2.jpg"
+                            src="/client/img/expresso.png"
                             class="img-fluid w-100 rounded-top"
                             alt=""
                           />
@@ -418,30 +385,31 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                           class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                           style="top: 10px; left: 10px"
                         >
-                          Fruits
+                          Coffee
                         </div>
                         <div
                           class="p-4 border border-secondary border-top-0 rounded-bottom"
                         >
-                          <h4>Raspberries</h4>
+                          <h4>Espresso</h4>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit sed do eiusmod te incididunt
+                            Cà phê nguyên chất, chiết xuất đậm đặc, hương vị
+                            mạnh mẽ.
                           </p>
                           <div
                             class="d-flex justify-content-between flex-lg-wrap"
                           >
                             <p class="text-dark fs-5 fw-bold mb-0">
-                              $4.99 / kg
+                              28.000đ / ly
                             </p>
                             <a
                               href="#"
                               class="btn border border-secondary rounded-pill px-3 text-primary"
-                              ><i
+                            >
+                              <i
                                 class="fa fa-shopping-bag me-2 text-primary"
                               ></i>
-                              Add to cart</a
-                            >
+                              Thêm vào giỏ
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -450,7 +418,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                       <div class="rounded position-relative fruite-item">
                         <div class="fruite-img">
                           <img
-                            src="/client/img/fruite-item-5.jpg"
+                            src="/client/img/americano.png"
                             class="img-fluid w-100 rounded-top"
                             alt=""
                           />
@@ -459,30 +427,30 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                           class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                           style="top: 10px; left: 10px"
                         >
-                          Fruits
+                          Coffee
                         </div>
                         <div
                           class="p-4 border border-secondary border-top-0 rounded-bottom"
                         >
-                          <h4>Grapes</h4>
+                          <h4>Americano</h4>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit sed do eiusmod te incididunt
+                            Espresso pha loãng với nước nóng, vị nhẹ, ít đắng.
                           </p>
                           <div
                             class="d-flex justify-content-between flex-lg-wrap"
                           >
                             <p class="text-dark fs-5 fw-bold mb-0">
-                              $4.99 / kg
+                              35.000đ / ly
                             </p>
                             <a
                               href="#"
                               class="btn border border-secondary rounded-pill px-3 text-primary"
-                              ><i
+                            >
+                              <i
                                 class="fa fa-shopping-bag me-2 text-primary"
                               ></i>
-                              Add to cart</a
-                            >
+                              Thêm vào giỏ
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -508,30 +476,31 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                           class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                           style="top: 10px; left: 10px"
                         >
-                          Fruits
+                          Coffee
                         </div>
                         <div
                           class="p-4 border border-secondary border-top-0 rounded-bottom"
                         >
-                          <h4>Grapes</h4>
+                          <h4>Cold Brew</h4>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit sed do eiusmod te incididunt
+                            Cà phê ủ lạnh trong nhiều giờ, vị thanh mát, ít
+                            chua.
                           </p>
                           <div
                             class="d-flex justify-content-between flex-lg-wrap"
                           >
                             <p class="text-dark fs-5 fw-bold mb-0">
-                              $4.99 / kg
+                              45.000đ / ly
                             </p>
                             <a
                               href="#"
                               class="btn border border-secondary rounded-pill px-3 text-primary"
-                              ><i
+                            >
+                              <i
                                 class="fa fa-shopping-bag me-2 text-primary"
                               ></i>
-                              Add to cart</a
-                            >
+                              Thêm vào giỏ
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -549,30 +518,31 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                           class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                           style="top: 10px; left: 10px"
                         >
-                          Fruits
+                          Coffee
                         </div>
                         <div
                           class="p-4 border border-secondary border-top-0 rounded-bottom"
                         >
-                          <h4>Raspberries</h4>
+                          <h4>Espresso</h4>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit sed do eiusmod te incididunt
+                            Cà phê nguyên chất, chiết xuất đậm đặc, hương vị
+                            mạnh mẽ.
                           </p>
                           <div
                             class="d-flex justify-content-between flex-lg-wrap"
                           >
                             <p class="text-dark fs-5 fw-bold mb-0">
-                              $4.99 / kg
+                              28.000đ / ly
                             </p>
                             <a
                               href="#"
                               class="btn border border-secondary rounded-pill px-3 text-primary"
-                              ><i
+                            >
+                              <i
                                 class="fa fa-shopping-bag me-2 text-primary"
                               ></i>
-                              Add to cart</a
-                            >
+                              Thêm vào giỏ
+                            </a>
                           </div>
                         </div>
                       </div>
