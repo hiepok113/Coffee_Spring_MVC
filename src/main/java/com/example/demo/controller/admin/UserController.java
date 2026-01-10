@@ -1,35 +1,37 @@
-package com.example.demo.controller;
+package com.example.demo.controller.admin;
 
-import java.nio.file.Path;
+
 import java.util.List;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.domain.User;
+import com.example.demo.service.UploadService;
 import com.example.demo.service.UserService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 
 @Controller
 public class UserController{
     private final UserService userService;
+    private final UploadService uploadService;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, UploadService uploadService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
+        this.uploadService = uploadService;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    @GetMapping("/")
-        public String getUser(Model model){
-            List<User> users = this.userService.getAllUsersByEmail("2@gmail.com");
-            System.out.println(users);
-            model.addAttribute("userInfo", "test");
-            return "hello";
-        }
+
     @GetMapping("/admin/user/{id}")
     public String getUserDetail(Model model , @PathVariable Long id) {
     User user = userService.getUserById(id);
@@ -50,7 +52,15 @@ public class UserController{
 
 
     @PostMapping("/admin/user/create")
-     public String createAdminUser(Model model , @ModelAttribute("newUser") User user) {
+     public String createAdminUser(Model model , @ModelAttribute("newUser") User user ,
+        @RequestParam("avatarFile") MultipartFile avatarFile) {
+        String targetFolder = "avatar";
+        String hashPasswordString = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hashPasswordString);
+        this.uploadService.handleUploadFile(avatarFile, targetFolder);
+        user.setAvatarString(targetFolder);
+        user.setPassword(hashPasswordString);
+        user.setRole(this.userService.getRoleByName(user.getRole().getName()));
         this.userService.handleSaveUser(user);
         return "redirect:/admin/user";
     }
