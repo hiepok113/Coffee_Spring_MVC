@@ -1,5 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@
+taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,10 +10,14 @@ uri="http://java.sun.com/jsp/jstl/core"%>
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="Admin - Dự án bán game" />
+    <meta name="description" content="Admin - Product Management" />
     <meta name="author" content="Admin" />
-    <title>Dashboard -Admin</title>
+    <title>Product Management - Admin</title>
+
+    <!-- Admin CSS -->
     <link href="/css/style.css" rel="stylesheet" />
+
+    <!-- FontAwesome -->
     <script
       src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
       crossorigin="anonymous"
@@ -21,32 +25,111 @@ uri="http://java.sun.com/jsp/jstl/core"%>
   </head>
 
   <body class="sb-nav-fixed">
+    <!-- Header -->
     <jsp:include page="/WEB-INF/view/admin/layout/header.jsp" />
 
     <div id="layoutSidenav">
+      <!-- Sidebar -->
       <jsp:include page="/WEB-INF/view/admin/layout/sidebar.jsp" />
+
+      <!-- Content -->
       <div id="layoutSidenav_content">
         <main>
           <div class="container-fluid px-4">
             <h1 class="mt-4">Manage Products</h1>
+
             <ol class="breadcrumb mb-4">
-              <li class="breadcrumb-item">
-                <a href="/admin">Dashboard</a>
-              </li>
-              <li class="breadcrumb-item active">
-                <a href="/admin">Products</a>
-              </li>
+              <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+              <li class="breadcrumb-item active">Products</li>
             </ol>
-            <div>show product</div>
+
+            <!-- Action -->
+            <div class="mb-3 d-flex justify-content-end">
+              <a href="/admin/product/create" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Create a product
+              </a>
+            </div>
+
+            <!-- Product Table -->
+            <div class="card mb-4">
+              <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Table products
+              </div>
+
+              <div class="card-body">
+                <table class="table table-bordered align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th style="width: 90px">ID</th>
+                      <th>Name</th>
+                      <th style="width: 160px">Price</th>
+                      <th style="width: 220px">Factory</th>
+                      <th style="width: 160px">Target</th>
+                      <th style="width: 260px">Action</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <c:choose>
+                      <c:when test="${empty products}">
+                        <tr>
+                          <td colspan="6" class="text-center text-muted py-4">
+                            No products found.
+                          </td>
+                        </tr>
+                      </c:when>
+
+                      <c:otherwise>
+                        <c:forEach var="p" items="${products}">
+                          <tr>
+                            <td>${p.id}</td>
+                            <td>${p.name}</td>
+                            <td>${p.price}</td>
+                            <td>${p.factory}</td>
+                            <td>${p.target}</td>
+
+                            <td>
+                              <a
+                                href="/admin/product/${p.id}"
+                                class="btn btn-success btn-sm"
+                              >
+                                View
+                              </a>
+                              <a
+                                href="/admin/product/update/${p.id}"
+                                class="btn btn-warning btn-sm mx-1"
+                              >
+                                Update
+                              </a>
+                              <a
+                                href="/admin/product/delete/${p.id}"
+                                class="btn btn-danger btn-sm"
+                              >
+                                Delete
+                              </a>
+                            </td>
+                          </tr>
+                        </c:forEach>
+                      </c:otherwise>
+                    </c:choose>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </main>
+
+        <!-- Footer -->
         <jsp:include page="/WEB-INF/view/admin/layout/footer.jsp" />
       </div>
     </div>
+
+    <!-- Scripts -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
     ></script>
-    <script src="js/scripts.js"></script>
+    <script src="/js/scripts.js"></script>
   </body>
 </html>
