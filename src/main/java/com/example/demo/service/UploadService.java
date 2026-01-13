@@ -22,6 +22,9 @@ public class UploadService {
     public String handleUploadFile(MultipartFile avatarFile , String targetFolder) {
         String rootPath = this.servletContext.getRealPath("/resources/images");
         String finalName = "";
+        if(avatarFile.isEmpty()) {
+            return finalName;
+        }
         try {
             byte[] bytes = avatarFile.getBytes();
 

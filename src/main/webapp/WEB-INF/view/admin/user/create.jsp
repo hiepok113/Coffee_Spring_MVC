@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@
 taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> <%@ taglib
-prefix="form" uri="http://www.springframework.org/tags/form"%>
+prefix="form" uri="http://www.springframework.org/tags/form"%> <%@ taglib
+prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,12 +41,8 @@ prefix="form" uri="http://www.springframework.org/tags/form"%>
             <h1 class="mt-4">Create User</h1>
 
             <ol class="breadcrumb mb-4">
-              <li class="breadcrumb-item">
-                <a href="/admin">Dashboard</a>
-              </li>
-              <li class="breadcrumb-item">
-                <a href="/admin/user">Users</a>
-              </li>
+              <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="/admin/user">Users</a></li>
               <li class="breadcrumb-item active">Create</li>
             </ol>
 
@@ -64,39 +61,65 @@ prefix="form" uri="http://www.springframework.org/tags/form"%>
                       <i class="fas fa-user-shield me-1"></i>
                       Account Information
                     </div>
+
                     <div class="card-body">
                       <!-- Email -->
-                      <div class="mb-3">
-                        <label class="form-label">Email</label>
-                        <form:input
-                          path="email"
-                          type="email"
-                          class="form-control"
-                          placeholder="Enter email"
-                          required="true"
-                        />
-                      </div>
+                      <spring:bind path="email">
+                        <div class="mb-3">
+                          <label class="form-label">Email</label>
+                          <form:input
+                            path="email"
+                            type="email"
+                            cssClass="form-control ${status.error ? 'is-invalid' : ''}"
+                            placeholder="Enter email"
+                          />
+                          <form:errors
+                            path="email"
+                            cssClass="invalid-feedback d-block"
+                          />
+                        </div>
+                      </spring:bind>
 
                       <!-- Password -->
-                      <div class="mb-3">
-                        <label class="form-label">Password</label>
-                        <form:password
-                          path="password"
-                          class="form-control"
-                          placeholder="Enter password"
-                          required="true"
-                        />
-                      </div>
+                      <spring:bind path="password">
+                        <div class="mb-3">
+                          <label class="form-label">Password</label>
+                          <form:password
+                            path="password"
+                            cssClass="form-control ${status.error ? 'is-invalid' : ''}"
+                            placeholder="Enter password"
+                          />
+                          <form:errors
+                            path="password"
+                            cssClass="invalid-feedback d-block"
+                          />
+                        </div>
+                      </spring:bind>
 
                       <!-- Role -->
-                      <div class="mb-3">
-                        <label class="form-label">Role</label>
-                        <form:select class="form-select" path="role.name">
-                          <form:option value="">-- Select role --</form:option>
-                          <form:option value="USER">User</form:option>
-                          <form:option value="ADMIN">Admin</form:option>
-                        </form:select>
-                      </div>
+                      <spring:bind path="role">
+                        <div class="mb-3">
+                          <label class="form-label">Role</label>
+
+                          <form:select
+                            path="role"
+                            cssClass="form-select ${status.error ? 'is-invalid' : ''}"
+                          >
+                            <form:option value="" label="-- Select role --" />
+                            <!-- roles: list<Role> từ controller -->
+                            <form:options
+                              items="${roles}"
+                              itemValue="id"
+                              itemLabel="name"
+                            />
+                          </form:select>
+
+                          <form:errors
+                            path="role"
+                            cssClass="invalid-feedback d-block"
+                          />
+                        </div>
+                      </spring:bind>
                     </div>
                   </div>
                 </div>
@@ -108,45 +131,64 @@ prefix="form" uri="http://www.springframework.org/tags/form"%>
                       <i class="fas fa-id-card me-1"></i>
                       Personal Information
                     </div>
+
                     <div class="card-body">
                       <!-- Full Name -->
-                      <div class="mb-3">
-                        <label class="form-label">Full Name</label>
-                        <form:input
-                          path="fullName"
-                          type="text"
-                          class="form-control"
-                          placeholder="Enter full name"
-                        />
-                      </div>
+                      <spring:bind path="fullName">
+                        <div class="mb-3">
+                          <label class="form-label">Full Name</label>
+                          <form:input
+                            path="fullName"
+                            type="text"
+                            cssClass="form-control ${status.error ? 'is-invalid' : ''}"
+                            placeholder="Enter full name"
+                          />
+                          <form:errors
+                            path="fullName"
+                            cssClass="invalid-feedback d-block"
+                          />
+                        </div>
+                      </spring:bind>
 
                       <!-- Address -->
-                      <div class="mb-3">
-                        <label class="form-label">Address</label>
-                        <form:input
-                          path="address"
-                          type="text"
-                          class="form-control"
-                          placeholder="Enter address"
-                        />
-                      </div>
+                      <spring:bind path="address">
+                        <div class="mb-3">
+                          <label class="form-label">Address</label>
+                          <form:input
+                            path="address"
+                            type="text"
+                            cssClass="form-control ${status.error ? 'is-invalid' : ''}"
+                            placeholder="Enter address"
+                          />
+                          <form:errors
+                            path="address"
+                            cssClass="invalid-feedback d-block"
+                          />
+                        </div>
+                      </spring:bind>
 
                       <!-- Phone Number -->
-                      <div class="mb-3">
-                        <label class="form-label">Phone Number</label>
-                        <form:input
-                          path="number"
-                          type="text"
-                          class="form-control"
-                          placeholder="Enter phone number"
-                        />
-                      </div>
+                      <spring:bind path="number">
+                        <div class="mb-3">
+                          <label class="form-label">Phone Number</label>
+                          <form:input
+                            path="number"
+                            type="text"
+                            cssClass="form-control ${status.error ? 'is-invalid' : ''}"
+                            placeholder="Enter phone number"
+                          />
+                          <form:errors
+                            path="number"
+                            cssClass="invalid-feedback d-block"
+                          />
+                        </div>
+                      </spring:bind>
 
                       <!-- Avatar Upload -->
                       <div class="mb-3">
-                        <label for="avatarFile" class="form-label">
-                          Avatar
-                        </label>
+                        <label for="avatarFile" class="form-label"
+                          >Avatar</label
+                        >
                         <input
                           class="form-control"
                           type="file"
@@ -154,6 +196,7 @@ prefix="form" uri="http://www.springframework.org/tags/form"%>
                           name="avatarFile"
                           accept=".png, .jpg, .jpeg"
                         />
+                        <div class="form-text">Allowed: .png, .jpg, .jpeg</div>
                       </div>
 
                       <!-- Avatar Preview -->
