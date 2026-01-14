@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@
 taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> <%@ taglib
-prefix="form" uri="http://www.springframework.org/tags/form"%>
+prefix="form" uri="http://www.springframework.org/tags/form"%> <%@ taglib
+prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +16,7 @@ prefix="form" uri="http://www.springframework.org/tags/form"%>
     <meta name="author" content="Admin" />
     <title>Create Product - Admin</title>
 
-    <!-- Admin CSS -->
     <link href="/css/style.css" rel="stylesheet" />
-
-    <!-- FontAwesome -->
     <script
       src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
       crossorigin="anonymous"
@@ -26,14 +24,11 @@ prefix="form" uri="http://www.springframework.org/tags/form"%>
   </head>
 
   <body class="sb-nav-fixed">
-    <!-- Header -->
     <jsp:include page="/WEB-INF/view/admin/layout/header.jsp" />
 
     <div id="layoutSidenav">
-      <!-- Sidebar -->
       <jsp:include page="/WEB-INF/view/admin/layout/sidebar.jsp" />
 
-      <!-- Content -->
       <div id="layoutSidenav_content">
         <main>
           <div class="container-fluid px-4">
@@ -47,7 +42,6 @@ prefix="form" uri="http://www.springframework.org/tags/form"%>
               <li class="breadcrumb-item active">Create</li>
             </ol>
 
-            <!-- FORM -->
             <form:form
               action="/admin/product/create"
               method="POST"
@@ -58,117 +52,165 @@ prefix="form" uri="http://www.springframework.org/tags/form"%>
                 <div class="card-body">
                   <div class="row g-4">
                     <!-- Name -->
-                    <div class="col-md-6">
-                      <label class="form-label fw-semibold">Name:</label>
-                      <form:input
-                        path="name"
-                        type="text"
-                        class="form-control"
-                        placeholder="Enter product name"
-                        required="true"
-                      />
-                    </div>
+                    <spring:bind path="name">
+                      <div class="col-md-6">
+                        <label class="form-label fw-semibold">Name:</label>
+                        <form:input
+                          path="name"
+                          type="text"
+                          cssClass="form-control ${status.error ? 'is-invalid' : ''}"
+                          placeholder="Enter product name"
+                        />
+                        <form:errors
+                          path="name"
+                          cssClass="invalid-feedback d-block"
+                        />
+                      </div>
+                    </spring:bind>
 
                     <!-- Price -->
-                    <div class="col-md-6">
-                      <label class="form-label fw-semibold">Price:</label>
-                      <form:input
-                        path="price"
-                        type="number"
-                        step="0.01"
-                        min="0"
-                        class="form-control"
-                        value="0.0"
-                        placeholder="0.0"
-                        required="true"
-                      />
-                    </div>
+                    <spring:bind path="price">
+                      <div class="col-md-6">
+                        <label class="form-label fw-semibold">Price:</label>
+                        <form:input
+                          path="price"
+                          type="number"
+                          step="0.01"
+                          min="0"
+                          cssClass="form-control ${status.error ? 'is-invalid' : ''}"
+                          placeholder="0.0"
+                        />
+                        <form:errors
+                          path="price"
+                          cssClass="invalid-feedback d-block"
+                        />
+                      </div>
+                    </spring:bind>
 
                     <!-- Detail Description -->
-                    <div class="col-12">
-                      <label class="form-label fw-semibold"
-                        >Detail description:</label
-                      >
-                      <form:textarea
-                        path="detailDesc"
-                        class="form-control"
-                        rows="4"
-                        placeholder="Enter detail description"
-                      />
-                    </div>
+                    <spring:bind path="detailDesc">
+                      <div class="col-12">
+                        <label class="form-label fw-semibold"
+                          >Detail description:</label
+                        >
+                        <form:textarea
+                          path="detailDesc"
+                          cssClass="form-control ${status.error ? 'is-invalid' : ''}"
+                          rows="4"
+                          placeholder="Enter detail description"
+                        />
+                        <form:errors
+                          path="detailDesc"
+                          cssClass="invalid-feedback d-block"
+                        />
+                      </div>
+                    </spring:bind>
 
                     <!-- Short Desc -->
-                    <div class="col-md-6">
-                      <label class="form-label fw-semibold"
-                        >Short description:</label
-                      >
-                      <form:input
-                        path="shortDesc"
-                        type="text"
-                        class="form-control"
-                        placeholder="Enter short description"
-                      />
-                    </div>
+                    <spring:bind path="shortDesc">
+                      <div class="col-md-6">
+                        <label class="form-label fw-semibold"
+                          >Short description:</label
+                        >
+                        <form:input
+                          path="shortDesc"
+                          type="text"
+                          cssClass="form-control ${status.error ? 'is-invalid' : ''}"
+                          placeholder="Enter short description"
+                        />
+                        <form:errors
+                          path="shortDesc"
+                          cssClass="invalid-feedback d-block"
+                        />
+                      </div>
+                    </spring:bind>
 
                     <!-- Quantity -->
-                    <div class="col-md-6">
-                      <label class="form-label fw-semibold">Quantity:</label>
-                      <form:input
-                        path="quantity"
-                        type="number"
-                        min="0"
-                        class="form-control"
-                        value="0"
-                        placeholder="0"
-                      />
-                    </div>
+                    <spring:bind path="quantity">
+                      <div class="col-md-6">
+                        <label class="form-label fw-semibold">Quantity:</label>
+                        <form:input
+                          path="quantity"
+                          type="number"
+                          min="0"
+                          cssClass="form-control ${status.error ? 'is-invalid' : ''}"
+                          placeholder="0"
+                        />
+                        <form:errors
+                          path="quantity"
+                          cssClass="invalid-feedback d-block"
+                        />
+                      </div>
+                    </spring:bind>
 
                     <!-- Factory -->
-                    <div class="col-md-6">
-                      <label class="form-label fw-semibold">Factory:</label>
-                      <form:select path="factory" class="form-select">
-                        <form:option value="">-- Select factory --</form:option>
-                        <form:option value="HOUSE_BLEND"
-                          >House Blend (Quán rang)</form:option
+                    <spring:bind path="factory">
+                      <div class="col-md-6">
+                        <label class="form-label fw-semibold">Factory:</label>
+                        <form:select
+                          path="factory"
+                          cssClass="form-select ${status.error ? 'is-invalid' : ''}"
                         >
-                        <form:option value="ARABICA_DALAT"
-                          >Arabica Đà Lạt</form:option
-                        >
-                        <form:option value="ROBUSTA_BMT"
-                          >Robusta Buôn Ma Thuột</form:option
-                        >
-                        <form:option value="CAU_DAT">Cầu Đất Farm</form:option>
-                        <form:option value="ETHIOPIA"
-                          >Import - Ethiopia</form:option
-                        >
-                        <form:option value="COLOMBIA"
-                          >Import - Colombia</form:option
-                        >
-                        <form:option value="BRAZIL"
-                          >Import - Brazil</form:option
-                        >
-                      </form:select>
-                    </div>
+                          <form:option value="" label="-- Select factory --" />
+                          <form:option value="HOUSE_BLEND"
+                            >House Blend (Quán rang)</form:option
+                          >
+                          <form:option value="ARABICA_DALAT"
+                            >Arabica Đà Lạt</form:option
+                          >
+                          <form:option value="ROBUSTA_BMT"
+                            >Robusta Buôn Ma Thuột</form:option
+                          >
+                          <form:option value="CAU_DAT"
+                            >Cầu Đất Farm</form:option
+                          >
+                          <form:option value="ETHIOPIA"
+                            >Import - Ethiopia</form:option
+                          >
+                          <form:option value="COLOMBIA"
+                            >Import - Colombia</form:option
+                          >
+                          <form:option value="BRAZIL"
+                            >Import - Brazil</form:option
+                          >
+                        </form:select>
+                        <form:errors
+                          path="factory"
+                          cssClass="invalid-feedback d-block"
+                        />
+                      </div>
+                    </spring:bind>
 
                     <!-- Target -->
-                    <div class="col-md-6">
-                      <label class="form-label fw-semibold">Target:</label>
-                      <form:select path="target" class="form-select">
-                        <form:option value="">-- Select target --</form:option>
-                        <form:option value="ESPRESSO">Espresso</form:option>
-                        <form:option value="MILK_COFFEE"
-                          >Milk Coffee</form:option
+                    <spring:bind path="target">
+                      <div class="col-md-6">
+                        <label class="form-label fw-semibold">Target:</label>
+                        <form:select
+                          path="target"
+                          cssClass="form-select ${status.error ? 'is-invalid' : ''}"
                         >
-                        <form:option value="TAKE_AWAY">Take Away</form:option>
-                        <form:option value="OFFICE">Office</form:option>
-                        <form:option value="STUDENT">Student</form:option>
-                        <form:option value="PREMIUM">Premium</form:option>
-                        <form:option value="SIGNATURE">Signature</form:option>
-                        <form:option value="COLD_BREW">Cold Brew</form:option>
-                        <form:option value="MANUAL">Manual Brew</form:option>
-                        <form:option value="WORKING">Làm việc lâu</form:option>
-                      </form:select>
-                    </div>
+                          <form:option value="" label="-- Select target --" />
+                          <form:option value="ESPRESSO">Espresso</form:option>
+                          <form:option value="MILK_COFFEE"
+                            >Milk Coffee</form:option
+                          >
+                          <form:option value="TAKE_AWAY">Take Away</form:option>
+                          <form:option value="OFFICE">Office</form:option>
+                          <form:option value="STUDENT">Student</form:option>
+                          <form:option value="PREMIUM">Premium</form:option>
+                          <form:option value="SIGNATURE">Signature</form:option>
+                          <form:option value="COLD_BREW">Cold Brew</form:option>
+                          <form:option value="MANUAL">Manual Brew</form:option>
+                          <form:option value="WORKING"
+                            >Làm việc lâu</form:option
+                          >
+                        </form:select>
+                        <form:errors
+                          path="target"
+                          cssClass="invalid-feedback d-block"
+                        />
+                      </div>
+                    </spring:bind>
 
                     <!-- Image -->
                     <div class="col-12">
@@ -180,9 +222,9 @@ prefix="form" uri="http://www.springframework.org/tags/form"%>
                         name="imageFile"
                         accept=".png,.jpg,.jpeg,.webp"
                       />
-                      <small class="text-muted"
-                        >Supported: png, jpg, jpeg, webp</small
-                      >
+                      <div class="form-text">
+                        Supported: png, jpg, jpeg, webp
+                      </div>
                     </div>
 
                     <!-- Image Preview -->
@@ -196,7 +238,6 @@ prefix="form" uri="http://www.springframework.org/tags/form"%>
                     </div>
                   </div>
 
-                  <!-- ACTION BUTTONS -->
                   <div class="d-flex justify-content-between mt-4">
                     <a href="/admin/product" class="btn btn-secondary">
                       <i class="fas fa-arrow-left"></i> Back
@@ -212,19 +253,16 @@ prefix="form" uri="http://www.springframework.org/tags/form"%>
           </div>
         </main>
 
-        <!-- Footer -->
         <jsp:include page="/WEB-INF/view/admin/layout/footer.jsp" />
       </div>
     </div>
 
-    <!-- Scripts -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
     ></script>
     <script src="/js/scripts.js"></script>
 
-    <!-- IMAGE PREVIEW SCRIPT -->
     <script>
       const imageInput = document.getElementById("imageFile");
       const imagePreview = document.getElementById("imagePreview");
