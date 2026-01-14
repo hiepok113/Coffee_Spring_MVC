@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,6 +25,7 @@ public class Product {
     private double price;
     private String image;
     @NotBlank(message = "Detail description is required")
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String detailDesc;
     @NotBlank(message = "Short description is required")
     private String shortDesc;
