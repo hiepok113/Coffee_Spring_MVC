@@ -488,3 +488,88 @@
   line-height: 35px;
 }
 /*** Footer End ***/
+/* ===== Product grid: equal height cards ===== */
+.fruite-item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.fruite-item .fruite-img {
+  height: 230px; /* chỉnh 200-280 tuỳ bạn */
+  overflow: hidden;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fruite-item .fruite-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* contain = không cắt ảnh; muốn full thì đổi cover */
+}
+
+/* Body của card: đẩy nút xuống đáy */
+.fruite-item .p-4 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title/Desc giới hạn dòng để các card đều nhau */
+.fruite-item h4 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  line-height: 1.25;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* title tối đa 2 dòng */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fruite-item p {
+  margin-bottom: 10px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* desc tối đa 2 dòng */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* cụm giá + nút luôn nằm dưới */
+.fruite-item .d-flex {
+  margin-top: auto;
+  gap: 10px;
+}
+
+/* giá nằm giữa đẹp hơn (tuỳ chọn) */
+.fruite-item .price {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+/* Center price + add-to-cart button */
+.fruite .fruite-item .p-4 .d-flex {
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: nowrap !important;
+  text-align: center;
+}
+
+.fruite .fruite-item .p-4 .d-flex > p {
+  width: 100% !important;
+  margin-bottom: 10px !important;
+}
+
+.fruite .fruite-item .p-4 .d-flex > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
