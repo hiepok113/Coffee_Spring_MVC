@@ -38,16 +38,15 @@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
           <div class="container-fluid px-4">
             <h1 class="mt-4">Product Detail</h1>
 
-            <ol class="breadcrumb mb-4">
-              <li class="breadcrumb-item">
-                <a href="/admin">Dashboard</a>
-              </li>
-              <li class="breadcrumb-item">
-                <a href="/admin/product">Products</a>
-              </li>
-              <li class="breadcrumb-item active">Detail</li>
-            </ol>
-
+      <ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item">
+    <a href="/admin">Dashboard</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/admin/product">Products</a>
+  </li>
+  <li class="breadcrumb-item active">Detail</li>
+</ol>
             <!-- Product Info Card -->
             <div class="card mb-4">
               <div class="card-header">

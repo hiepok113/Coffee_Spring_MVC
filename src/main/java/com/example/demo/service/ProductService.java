@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import java.security.cert.PKIXRevocationChecker.Option;
 import java.util.List;
 import java.util.Optional;
 

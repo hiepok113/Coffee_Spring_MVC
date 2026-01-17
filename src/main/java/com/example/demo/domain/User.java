@@ -1,6 +1,9 @@
 package com.example.demo.domain;
 
 import java.util.List;
+
+import com.example.demo.service.validator.StrongPassword;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,13 +28,12 @@ public class User {
     private String email;
     @NotNull
     @Size(min = 6, max = 100 , message = "Password must be between 6 and 100 characters")
+    @StrongPassword
     private String password;
     @NotNull
     @Size(min = 2, message = "Full name must be at least 2 characters")
     private String fullName;
-    @NotNull(message = "Address is required")
     private String address;
-    @NotNull(message = "Number is required")
     private String number;
     private String avatarString;
 

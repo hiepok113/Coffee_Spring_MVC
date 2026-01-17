@@ -16,7 +16,6 @@ import com.example.demo.service.UploadService;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -54,26 +53,26 @@ public class ProductController {
         return "redirect:/admin/product";
     }
     @GetMapping("/admin/product/{id}")
-    public String getProductDetailPage(@PathVariable("id") long id, Model model) {
+    public String getProductDetailPage(@PathVariable long id, Model model) {
         Product product = productService.getProductById(id).orElse(null);
         model.addAttribute("product", product);
         model.addAttribute("id" , id);
         return "admin/product/detail";
     }
     @GetMapping("/admin/product/delete/{id}")
-    public String getDeleteProductPage(@PathVariable("id") long id, Model model) {
+    public String getDeleteProductPage(@PathVariable long id, Model model) {
         Product product = productService.getProductById(id).orElse(null);
         model.addAttribute("product", product);
         model.addAttribute("id" , id);
         return "admin/product/delete";
     }
     @PostMapping("/admin/product/delete")
-    public String postDeleteProduct(@RequestParam("id") long id) {
+    public String postDeleteProduct(@RequestParam long id) {
     productService.deleteProduct(id);
     return "redirect:/admin/product";
 }
     @GetMapping("/admin/product/update/{id}")
-    public String getUpdateProductPage(@PathVariable("id") long id, Model model) {
+    public String getUpdateProductPage(@PathVariable long id, Model model) {
         Product product = productService.getProductById(id).orElse(null);
         model.addAttribute("product", product);
         model.addAttribute("id" , id);
@@ -99,7 +98,4 @@ public class ProductController {
         }
         return "redirect:/admin/product";
     }
-
-   
-
 }

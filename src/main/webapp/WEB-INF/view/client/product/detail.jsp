@@ -158,14 +158,26 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <!-- Modal Search End -->
 
     <!-- Single Page Header start -->
-    <div class="container-fluid page-header py-5">
-      <h1 class="text-center text-white display-6">Shop Detail</h1>
-      <ol class="breadcrumb justify-content-center mb-0">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Pages</a></li>
-        <li class="breadcrumb-item active text-white">Shop Detail</li>
-      </ol>
-    </div>
+  <!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+  <h1 class="text-center text-white display-6">Shop Detail</h1>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb justify-content-center mb-0">
+      <li class="breadcrumb-item">
+        <a href="/">Home</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="/shop">Shop</a>
+      </li>
+      <li class="breadcrumb-item active text-white" aria-current="page">
+        ${product.name}
+      </li>
+    </ol>
+  </nav>
+</div>
+<!-- Single Page Header End -->
+
     <!-- Single Page Header End -->
 
     <!-- Single Product Start -->
@@ -279,48 +291,66 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                 </div>
                 <div class="mb-4">
                   <h4>Categories</h4>
-                  <ul class="list-unstyled fruite-categorie">
-                    <li>
-                      <div class="d-flex justify-content-between fruite-name">
-                        <a href="#"
-                          ><i class="fas fa-apple-alt me-2"></i>Apples</a
-                        >
-                        <span>(3)</span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="d-flex justify-content-between fruite-name">
-                        <a href="#"
-                          ><i class="fas fa-apple-alt me-2"></i>Oranges</a
-                        >
-                        <span>(5)</span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="d-flex justify-content-between fruite-name">
-                        <a href="#"
-                          ><i class="fas fa-apple-alt me-2"></i>Strawbery</a
-                        >
-                        <span>(2)</span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="d-flex justify-content-between fruite-name">
-                        <a href="#"
-                          ><i class="fas fa-apple-alt me-2"></i>Banana</a
-                        >
-                        <span>(8)</span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="d-flex justify-content-between fruite-name">
-                        <a href="#"
-                          ><i class="fas fa-apple-alt me-2"></i>Pumpkin</a
-                        >
-                        <span>(5)</span>
-                      </div>
-                    </li>
-                  </ul>
+                 <ul class="list-unstyled fruite-categorie">
+
+  <li>
+    <div class="d-flex justify-content-between fruite-name">
+      <a href="/shop?factory=HOUSE_BLEND">
+        <i class="fas fa-seedling me-2"></i>House Blend (Quán rang)
+      </a>
+    </div>
+  </li>
+
+  <li>
+    <div class="d-flex justify-content-between fruite-name">
+      <a href="/shop?factory=ARABICA_DALAT">
+        <i class="fas fa-seedling me-2"></i>Arabica Đà Lạt
+      </a>
+    </div>
+  </li>
+
+  <li>
+    <div class="d-flex justify-content-between fruite-name">
+      <a href="/shop?factory=ROBUSTA_BMT">
+        <i class="fas fa-seedling me-2"></i>Robusta Buôn Ma Thuột
+      </a>
+    </div>
+  </li>
+
+  <li>
+    <div class="d-flex justify-content-between fruite-name">
+      <a href="/shop?factory=CAU_DAT">
+        <i class="fas fa-seedling me-2"></i>Cầu Đất Farm
+      </a>
+    </div>
+  </li>
+
+  <li>
+    <div class="d-flex justify-content-between fruite-name">
+      <a href="/shop?factory=ETHIOPIA">
+        <i class="fas fa-globe me-2"></i>Import - Ethiopia
+      </a>
+    </div>
+  </li>
+
+  <li>
+    <div class="d-flex justify-content-between fruite-name">
+      <a href="/shop?factory=COLOMBIA">
+        <i class="fas fa-globe me-2"></i>Import - Colombia
+      </a>
+    </div>
+  </li>
+
+  <li>
+    <div class="d-flex justify-content-between fruite-name">
+      <a href="/shop?factory=BRAZIL">
+        <i class="fas fa-globe me-2"></i>Import - Brazil
+      </a>
+    </div>
+  </li>
+
+</ul>
+
                 </div>
               </div>
             </div>
