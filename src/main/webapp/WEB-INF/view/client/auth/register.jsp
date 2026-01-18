@@ -79,43 +79,58 @@ prefix="spring" uri="http://www.springframework.org/tags" %>
                       </div>
 
                       <div class="form-floating mb-3">
-                        <form:input
-                          path="email"
-                          type="email"
-                          cssClass="form-control"
-                          id="inputEmail"
-                          placeholder="name@example.com"
-                        />
-                        <label for="inputEmail">Email address</label>
-                        <!-- <form:errors path="email" cssClass="text-danger small" /> -->
+                        <spring:bind path="email">
+                          <form:input
+                            path="email"
+                            type="email"
+                            id="inputEmail"
+                            cssClass="form-control ${status.error ? 'is-invalid' : ''}"
+                            placeholder="name@example.com"
+                          />
+                          <label for="inputEmail">Email address</label>
+                          <form:errors
+                            path="email"
+                            cssClass="invalid-feedback d-block"
+                          />
+                        </spring:bind>
                       </div>
 
                       <div class="row mb-3">
                         <div class="col-md-6">
                           <div class="form-floating mb-3 mb-md-0">
-                            <form:password
-                              path="password"
-                              cssClass="form-control"
-                              id="inputPassword"
-                              placeholder="Create a password"
-                            />
-                            <label for="inputPassword">Password</label>
-                            <!-- <form:errors path="password" cssClass="text-danger small" /> -->
+                            <spring:bind path="password">
+                              <form:password
+                                path="password"
+                                id="inputPassword"
+                                cssClass="form-control ${status.error ? 'is-invalid' : ''}"
+                                placeholder="Create a password"
+                              />
+                              <label for="inputPassword">Password</label>
+                              <form:errors
+                                path="password"
+                                cssClass="invalid-feedback d-block"
+                              />
+                            </spring:bind>
                           </div>
                         </div>
 
                         <div class="col-md-6">
                           <div class="form-floating mb-3 mb-md-0">
-                            <form:password
-                              path="confirmPassword"
-                              cssClass="form-control"
-                              id="inputPasswordConfirm"
-                              placeholder="Confirm password"
-                            />
-                            <label for="inputPasswordConfirm"
-                              >Confirm Password</label
-                            >
-                            <!-- <form:errors path="confirmPassword" cssClass="text-danger small" /> -->
+                            <spring:bind path="confirmPassword">
+                              <form:password
+                                path="confirmPassword"
+                                id="inputPasswordConfirm"
+                                cssClass="form-control ${status.error ? 'is-invalid' : ''}"
+                                placeholder="Confirm password"
+                              />
+                              <label for="inputPasswordConfirm"
+                                >Confirm Password</label
+                              >
+                              <form:errors
+                                path="confirmPassword"
+                                cssClass="invalid-feedback d-block"
+                              />
+                            </spring:bind>
                           </div>
                         </div>
                       </div>

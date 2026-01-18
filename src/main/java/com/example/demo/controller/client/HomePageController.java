@@ -48,9 +48,8 @@ public class HomePageController {
     }
     @PostMapping("/register")
     public String handleRegister(@ModelAttribute("registerDTO") @Valid RegisterDTO registerDTO, BindingResult bindingResult) {
-        List<FieldError> fieldErrors = bindingResult.getFieldErrors();
-        for(FieldError fieldError : fieldErrors) {
-            System.out.println("Field: " + fieldError.getField() + " - Message: " + fieldError.getDefaultMessage());
+        if (bindingResult.hasErrors()) {
+            return "client/auth/register";
         }
         User user = this.userService.registerDTOtoUser(registerDTO);
         user.setPassword(this.passwordEncoder.encode(user.getPassword()));
