@@ -23,7 +23,7 @@ public class UserService {
         return this.userRepository.findAll();
     }
      public List<User> getAllUsersByEmail(String email){
-        return this.userRepository.findByEmail(email);
+        return this.userRepository.findOneByEmail(email);
     }
     public User handleSaveUser(User user){
         return this.userRepository.save(user);
@@ -47,4 +47,12 @@ public class UserService {
     public boolean checkEmailExists(String email) {
         return userRepository.existsByEmail(email);
     }
+    public User getUserByEmail(String email) {
+        return this.userRepository.findByEmail(email);
+    }
+    public Role getRoleById(Long id) {
+    return roleRepository.findById(id).orElse(null);
 }
+    public List<Role> getAllRoles() {
+        return roleRepository.findAll();
+    }   }

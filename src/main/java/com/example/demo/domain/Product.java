@@ -18,7 +18,6 @@ public class Product {
     private long id;
     @NotBlank(message = "Name is required")
     private String name;
-    @NotNull
     @DecimalMin(value = "0.0", inclusive = false, message = "Price must be greater than 0")
     private double price;
     private String image;

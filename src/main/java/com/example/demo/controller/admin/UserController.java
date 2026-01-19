@@ -40,19 +40,26 @@ public class UserController{
     public String getUserDetail(Model model , @PathVariable Long id) {
     User user = userService.getUserById(id);
     model.addAttribute("user", user);
-    return "/admin/user/userdetail";
+    return "admin/user/userdetail";
     }
     @GetMapping("/admin/user")
     public String getAdminUser(Model model) {
         List<User> users = this.userService.getAllUsers();
         model.addAttribute("users1", users);
-        return "/admin/user/stable-user";
+        return "admin/user/stable-user";
     }
-    @GetMapping("/admin/user/create")
-    public String getCreateUserPage(Model model) {
-         model.addAttribute("newUser", new User());
-        return "/admin/user/create";
-    }
+@GetMapping("/admin/user/create")
+public String getCreateUserPage(Model model) {
+    User u = new User();
+    u.setRole(new com.example.demo.domain.Role());
+
+    model.addAttribute("newUser", u);
+    model.addAttribute("roles", this.userService.getAllRoles()); 
+
+    return "admin/user/create";
+}
+
+
 
 
     @PostMapping("/admin/user/create")
@@ -63,7 +70,7 @@ public class UserController{
                 model.addAttribute(error.getField() + "Error", error.getDefaultMessage());
             }
             if(bindingResult.hasErrors()) {
-                return "/admin/user/create";
+                return "admin/user/create";
             }
 
         String targetFolder = "avatar";
@@ -74,13 +81,13 @@ public class UserController{
         user.setPassword(hashPasswordString);
         user.setRole(this.userService.getRoleByName(user.getRole().getName()));
         this.userService.handleSaveUser(user);
-        return "redirect:/admin/user";
+        return "redirect:admin/user";
     }
     @GetMapping("/admin/user/update/{id}")
     public String getUpdateUserPage(@PathVariable Long id, Model model) {
     User user = userService.getUserById(id);
     model.addAttribute("user", user);
-    return "/admin/user/update";
+    return "admin/user/update";
 }
     @PostMapping("/admin/user/update")
     public String updateUser(@ModelAttribute User user) {
@@ -100,12 +107,12 @@ public class UserController{
     public String getDeletePage(@PathVariable Long id, Model model) {
     User user = userService.getUserById(id);
     model.addAttribute("user", user);
-    return "/admin/user/delete";
+    return "admin/user/delete";
 }
     @PostMapping("/admin/user/delete")
     public String deleteUser(@RequestParam Long id) {
     userService.deleteUserById(id);
-    return "redirect:/admin/user";
+    return "redirect:admin/user";
 }
 
 }

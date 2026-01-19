@@ -97,16 +97,15 @@ prefix="spring" uri="http://www.springframework.org/tags" %>
                       </spring:bind>
 
                       <!-- Role -->
-                      <spring:bind path="role">
+                      <spring:bind path="role.id">
                         <div class="mb-3">
                           <label class="form-label">Role</label>
 
                           <form:select
-                            path="role"
+                            path="role.id"
                             cssClass="form-select ${status.error ? 'is-invalid' : ''}"
                           >
                             <form:option value="" label="-- Select role --" />
-                            <!-- roles: list<Role> từ controller -->
                             <form:options
                               items="${roles}"
                               itemValue="id"

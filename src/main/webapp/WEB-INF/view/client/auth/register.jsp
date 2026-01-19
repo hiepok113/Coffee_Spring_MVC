@@ -53,11 +53,15 @@ prefix="spring" uri="http://www.springframework.org/tags" %>
                           <div class="form-floating mb-3 mb-md-0">
                             <form:input
                               path="firstName"
-                              cssClass="form-control"
                               id="inputFirstName"
                               placeholder="Enter your first name"
+                              cssClass="form-control ${status.error ? 'is-invalid' : ''}"
                             />
                             <label for="inputFirstName">First name</label>
+                            <form:errors
+                              path="firstName"
+                              cssClass="invalid-feedback d-block"
+                            />
 
                             <!-- (Tuỳ chọn) Lỗi cho field -->
                             <!-- <form:errors path="firstName" cssClass="text-danger small" /> -->
@@ -161,22 +165,7 @@ prefix="spring" uri="http://www.springframework.org/tags" %>
         </main>
       </div>
 
-      <div id="layoutAuthentication_footer">
-        <footer class="py-4 bg-light mt-auto">
-          <div class="container-fluid px-4">
-            <div
-              class="d-flex align-items-center justify-content-between small"
-            >
-              <div class="text-muted">Copyright &copy; Your Website 2023</div>
-              <div>
-                <a href="#">Privacy Policy</a>
-                &middot;
-                <a href="#">Terms &amp; Conditions</a>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
+      <div id="layoutAuthentication_footer"></div>
     </div>
 
     <script
