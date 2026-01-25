@@ -32,13 +32,14 @@ prefix="spring" uri="http://www.springframework.org/tags" %>
                     <h3 class="text-center font-weight-light my-4">Login</h3>
                   </div>
                   <div class="card-body">
-                    <form>
+                    <form method="POST" action="/login">
                       <div class="form-floating mb-3">
                         <input
                           class="form-control"
                           id="inputEmail"
                           type="email"
                           placeholder="name@example.com"
+                          name="username"
                         />
                         <label for="inputEmail">Email address</label>
                       </div>
@@ -48,8 +49,16 @@ prefix="spring" uri="http://www.springframework.org/tags" %>
                           id="inputPassword"
                           type="password"
                           placeholder="Password"
+                          name="password"
                         />
                         <label for="inputPassword">Password</label>
+                      </div>
+                      <div>
+                        <input
+                          type="hidden"
+                          name="${_csrf.parameterName}"
+                          value="${_csrf.token}"
+                        />
                       </div>
 
                       <div class="mt-4 mb-0">

@@ -23,10 +23,13 @@ public class CustomUserDetailsService implements UserDetailsService {
        if (user == null) {
            throw new UsernameNotFoundException("User not found");
        }
+       if(user.getRole() == null) {
+           throw new UsernameNotFoundException("User role not found");
+       }
        return new User(
         user.getEmail(),
         user.getPassword(),
-        Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"))
+        Collections.singletonList(new SimpleGrantedAuthority(user.getRole().getName()))
        );
     }
 }
