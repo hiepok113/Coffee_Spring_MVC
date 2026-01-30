@@ -85,6 +85,13 @@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
                     <a href="/admin/user" class="btn btn-secondary">
                       <i class="fas fa-arrow-left"></i> Cancel
                     </a>
+                      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+
+                    <div class="d-flex justify-content-between mt-4">
+                      <a href="/admin/user" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Cancel
+                      </a>
+
 
                     <button type="submit" class="btn btn-danger">
                       <i class="fas fa-trash"></i> Confirm Delete

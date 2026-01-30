@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core"%>
+uri="http://java.sun.com/jsp/jstl/core"%> <%@ taglib prefix="sec"
+uri="http://www.springframework.org/security/tags" %>
+
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
   <!-- Navbar Brand-->
   <a class="navbar-brand ps-3" href="/admin">Coffee-shop</a>

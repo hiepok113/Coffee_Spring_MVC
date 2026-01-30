@@ -79,9 +79,10 @@ public String getCreateUserPage(Model model) {
         this.uploadService.handleUploadFile(avatarFile, targetFolder);
         user.setAvatarString(targetFolder);
         user.setPassword(hashPasswordString);
-        user.setRole(this.userService.getRoleByName(user.getRole().getName()));
-        this.userService.handleSaveUser(user);
-        return "redirect:admin/user";
+    Long roleId = user.getRole().getId();
+    user.setRole(this.userService.getRoleById(roleId));        
+    this.userService.handleSaveUser(user);
+        return "redirect:/admin/user";
     }
     @GetMapping("/admin/user/update/{id}")
     public String getUpdateUserPage(@PathVariable Long id, Model model) {
@@ -112,7 +113,7 @@ public String getCreateUserPage(Model model) {
     @PostMapping("/admin/user/delete")
     public String deleteUser(@RequestParam Long id) {
     userService.deleteUserById(id);
-    return "redirect:admin/user";
+    return "redirect:/admin/user";
 }
 
 }
