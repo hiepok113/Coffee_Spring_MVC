@@ -81,7 +81,7 @@
                 <li><hr class="dropdown-divider" /></li>
 
                 <li>
-                  <form action="/login" method="post" class="px-3">
+                  <form action="/logout" method="post" class="px-3">
                     <!-- CSRF (Spring Security) -->
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                     <button type="submit" class="btn btn-danger w-100">

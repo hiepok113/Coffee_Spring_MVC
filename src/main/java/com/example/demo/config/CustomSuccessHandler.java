@@ -50,12 +50,11 @@ protected void clearAuthenticationAttributes(HttpServletRequest request) {
       String targetUrl = determineTargetUrl(authentication);
 
     if (response.isCommitted()) {
-  
+
         return;
     }
 
     redirectStrategy.sendRedirect(request, response, targetUrl);
     clearAuthenticationAttributes(request);
     }
-    
 }

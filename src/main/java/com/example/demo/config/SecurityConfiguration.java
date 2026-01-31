@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -65,17 +66,25 @@ SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
             .requestMatchers("/admin/**").hasRole("ADMIN")
             .anyRequest().authenticated()
         )
+        .exceptionHandling(exception -> exception.accessDeniedPage("/access-denied"))
+        .sessionManagement(sessionManagement -> sessionManagement
+            .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
+            .maximumSessions(1)
+            .maxSessionsPreventsLogin(true)
+            .maxSessionsPreventsLogin(false)
+        )
+        .logout(logout -> logout
+            .logoutUrl("/logout")
+            .logoutSuccessUrl("/login?logout")
+            .deleteCookies("JSESSIONID")
+            .permitAll()
+        )
         .formLogin(formLogin -> formLogin
             .loginPage("/login")
             .failureUrl("/login?error")
             .permitAll()
             .successHandler(customSuccessHandler())
 
-        );
-        http.logout(logout -> logout
-            .logoutUrl("/logout")
-            .logoutSuccessUrl("/login?logout")
-            .permitAll()
         );
 
     return http.build();

@@ -46,7 +46,26 @@ uri="http://www.springframework.org/security/tags" %>
         <li>
           <hr class="dropdown-divider" />
         </li>
-        <li><a class="dropdown-item" href="#!">Logout</a></li>
+        <li>
+          <form
+            id="logoutForm"
+            method="POST"
+            action="/logout"
+            style="display: none"
+          >
+            <input
+              type="hidden"
+              name="${_csrf.parameterName}"
+              value="${_csrf.token}"
+            />
+          </form>
+          <a
+            class="dropdown-item"
+            href="#"
+            onclick="document.getElementById('logoutForm').submit()"
+            >Logout</a
+          >
+        </li>
       </ul>
     </li>
   </ul>
