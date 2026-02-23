@@ -1,6 +1,5 @@
 package com.example.demo.domain;
 
-
 import java.io.Serializable;
 
 import jakarta.persistence.Entity;
@@ -9,9 +8,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class OrderDetail implements Serializable {
+@Table(name = "cart_detail")
+public class CartDetail implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +24,10 @@ public class OrderDetail implements Serializable {
     private double price;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    @JoinColumn(name = "cart_id")
+    @JsonIgnore
+    private Cart cart;
+
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
@@ -50,12 +56,12 @@ public class OrderDetail implements Serializable {
         this.price = price;
     }
 
-    public Order getOrder() {
-        return order;
+    public Cart getCart() {
+        return cart;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     public Product getProduct() {
@@ -65,4 +71,5 @@ public class OrderDetail implements Serializable {
     public void setProduct(Product product) {
         this.product = product;
     }
+
 }

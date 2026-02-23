@@ -2,6 +2,8 @@ package com.example.demo.domain;
 
 import java.util.List;
 
+import java.io.Serializable;
+
 import com.example.demo.service.validator.StrongPassword;
 
 import jakarta.persistence.Entity;
@@ -10,15 +12,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,6 +35,7 @@ public class User {
     @NotNull
     @Size(min = 6, max = 100 , message = "Password must be between 6 and 100 characters")
     @StrongPassword
+    @JsonIgnore
     private String password;
     @NotNull
     @Size(min = 2, message = "Full name must be at least 2 characters")
@@ -39,8 +47,22 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
+    
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Order> orders;
+
+    @OneToOne(mappedBy = "user")
+    @JsonIgnore
+    private Cart cart;
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
     public Role getRole() {
         return role;

@@ -1,13 +1,13 @@
 package com.example.demo.service;
 
 
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.security.core.userdetails.User;
-import java.util.Collections;
+
+
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -26,10 +26,6 @@ public class CustomUserDetailsService implements UserDetailsService {
        if(user.getRole() == null) {
            throw new UsernameNotFoundException("User role not found");
        }
-       return new User(
-        user.getEmail(),
-        user.getPassword(),
-        Collections.singletonList(new SimpleGrantedAuthority("ROLE_"+user.getRole().getName()))
-       );
+       return new CustomUserDetails(user);
     }
 }
